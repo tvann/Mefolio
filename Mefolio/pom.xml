@@ -1,0 +1,384 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.vnt</groupId>
+	<artifactId>mefolio</artifactId>
+	<packaging>pom</packaging>
+	<name>Mefolio</name>
+	<version>1.0</version>
+	<inceptionYear>2013</inceptionYear>
+	<url>http://www.mycompany.com</url>
+
+
+	<modules>
+		<module>mefolio-service</module>
+		<module>mefolio-model</module>
+		<module>mefolio-hibernate</module>
+		<module>mefolio-webapp</module>
+	</modules>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											org.codehaus.mojo
+										</groupId>
+										<artifactId>
+											hibernate3-maven-plugin
+										</artifactId>
+										<versionRange>
+											[2.2,)
+										</versionRange>
+										<goals>
+											<goal>hbm2ddl</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.mockito</groupId>
+				<artifactId>mockito-core</artifactId>
+				<version>${mockito.version}</version>
+				<scope>test</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>${commons.lang.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+				<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>${spring.security.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-aop</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-beans</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-context</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-expression</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${spring.security.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-aop</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-beans</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-context</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-core</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!-- Upgrade version of AspectJ used by Spring Security -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>${aspectj.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>${aspectj.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit-dep</artifactId>
+			<version>4.8.2</version>
+			<scope>test</scope>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.subethamail</groupId>
+			<artifactId>subethasmtp-wiser</artifactId>
+			<version>${wiser.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Logging -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>javax.mail</groupId>
+					<artifactId>mail</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>javax.jms</groupId>
+					<artifactId>jms</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.jdmk</groupId>
+					<artifactId>jmxtools</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.jmx</groupId>
+					<artifactId>jmxri</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>${jdbc.groupId}</groupId>
+			<artifactId>${jdbc.artifactId}</artifactId>
+			<version>${jdbc.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.version}</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+
+
+
+	<reporting>
+		<plugins>
+			<plugin>
+				<artifactId>maven-changes-plugin</artifactId>
+				<version>2.8</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<configuration>
+					<consoleOutput>true</consoleOutput>
+					<configLocation>https://raw.github.com/appfuse/appfuse/master/www/checkstyle.xml</configLocation>
+					<failsOnError>false</failsOnError>
+					<maxAllowedViolations>3</maxAllowedViolations>
+				</configuration>
+				<version>2.9.1</version>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>cobertura-maven-plugin</artifactId>
+				<configuration>
+					<instrumentation>
+						<excludes>
+							<exclude>**/model/*.class</exclude>
+						</excludes>
+					</instrumentation>
+				</configuration>
+				<version>2.5.2</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.9</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-jxr-plugin</artifactId>
+				<version>2.3</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<configuration>
+					<linkXRef>true</linkXRef>
+					<targetJdk>1.6</targetJdk>
+				</configuration>
+				<version>2.7.1</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-surefire-report-plugin</artifactId>
+				<version>2.12.4</version>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>webtest-maven-plugin</artifactId>
+				<version>1.0.0</version>
+			</plugin>
+		</plugins>
+	</reporting>
+
+
+<!-- 	<repositories>
+		<repository>
+			<id>appfuse-snapshots</id>
+			<url>http://oss.sonatype.org/content/repositories/appfuse-snapshots</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>appfuse-snapshots</id>
+			<url>http://oss.sonatype.org/content/repositories/appfuse-snapshots</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories> -->
+
+	
+
+
+
+	<properties>
+		<!-- Application settings -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<copyright.year>2012</copyright.year>
+		<dao.framework>hibernate</dao.framework>
+		<web.framework>spring</web.framework>
+		<amp.genericCore>true</amp.genericCore>
+		<amp.fullSource>false</amp.fullSource>
+		<db.name>mefolio_app</db.name>
+
+		<!-- Framework dependency versions -->
+		<!-- Need to be deleted later - VNT -->
+		<mefolio.version>2.2.1</mefolio.version>
+		<cxf.version>2.7.1</cxf.version>
+		<commons.beanutils.version>1.8.3</commons.beanutils.version>
+		<commons.fileupload.version>1.2.1</commons.fileupload.version>
+		<commons.io.version>1.3.2</commons.io.version>
+		<commons.collections.version>3.2.1</commons.collections.version>
+		<commons.dbcp.version>1.3</commons.dbcp.version>
+		<displaytag.version>1.2</displaytag.version>
+		<spring.version>3.1.3.RELEASE</spring.version>
+		<springmodules.validation.version>0.8</springmodules.validation.version>
+		<commons.lang.version>2.6</commons.lang.version>
+		<jpa.version>2.0-cr-1</jpa.version>
+		<hibernate.version>4.1.8.Final</hibernate.version>
+		<hibernate.search.version>4.1.1.Final</hibernate.search.version>
+		<ehcache.version>2.6.2</ehcache.version>
+		<spring.security.version>3.1.3.RELEASE</spring.security.version>
+		<aspectj.version>1.6.10</aspectj.version>
+		<slf4j.version>1.6.1</slf4j.version>
+		<log4j.version>1.2.17</log4j.version>
+		<javamail.version>1.4.1</javamail.version>
+		<velocity.version>1.4</velocity.version>
+		<mockito.version>1.9.5</mockito.version>
+		<urlrewrite.version>3.1.0</urlrewrite.version>
+		<sitemesh.version>2.4.2</sitemesh.version>
+		<dwr.version>2.0.3</dwr.version>
+		<ehcache.web.version>2.0.4</ehcache.web.version>
+
+		<!-- Testing dependency versions -->
+		<cargo.version>1.2.4</cargo.version>
+		<jmock.version>2.5.1</jmock.version>
+		<jsp.version>2.1</jsp.version>
+		<junit.version>4.10</junit.version>
+		<servlet.version>2.5</servlet.version>
+		<jstl.version>1.2</jstl.version>
+		<struts.menu.version>2.4.3</struts.menu.version>
+		<wiser.version>1.2</wiser.version>
+
+		<!-- WebTest default target -->
+		<webtest.target>run-all-tests</webtest.target>
+
+		<cargo.container>tomcat7x</cargo.container>
+		<cargo.container.home>${env.CATALINA_HOME}</cargo.container.home>
+		<cargo.container.url>http://archive.apache.org/dist/tomcat/tomcat-7/v7.0.33/bin/apache-tomcat-7.0.33.zip</cargo.container.url>
+		<cargo.host>localhost</cargo.host>
+		<cargo.port>8080</cargo.port>
+		<cargo.wait>false</cargo.wait>
+
+		<!-- Jetty Cargo settings: <cargo.container>jetty6x</cargo.container> <cargo.container.url>http://dist.codehaus.org/jetty/jetty-6.1.21/jetty-6.1.21.zip</cargo.container.url> -->
+
+		<!-- Database settings -->
+		<dbunit.dataTypeFactoryName>org.dbunit.ext.mysql.MySqlDataTypeFactory</dbunit.dataTypeFactoryName>
+		<dbunit.operation.type>CLEAN_INSERT</dbunit.operation.type>
+		<hibernate.dialect>org.hibernate.dialect.MySQL5InnoDBDialect</hibernate.dialect>
+		<jdbc.groupId>mysql</jdbc.groupId>
+		<jdbc.artifactId>mysql-connector-java</jdbc.artifactId>
+		<jdbc.version>5.1.22</jdbc.version>
+		<jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName>
+		<jdbc.url>jdbc:mysql://localhost/${db.name}?createDatabaseIfNotExist=true&amp;amp;useUnicode=true&amp;amp;characterEncoding=utf-8&amp;amp;autoReconnect=true</jdbc.url>
+		<jdbc.username>root</jdbc.username>
+		<jdbc.password>root</jdbc.password>
+	</properties>
+</project>

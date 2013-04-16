@@ -8,7 +8,7 @@
 		<artifactId>mefolio</artifactId>
 		<version>1.0</version>
 	</parent>
-	<artifactId>mefolio-service</artifactId>
+	<artifactId>mefolio-appfuse-service</artifactId>
 	<packaging>jar</packaging>
 	<name>Mefolio Service for User Logging</name>
 	<url>http://www.mycompany.com</url>
@@ -74,7 +74,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
-			<artifactId>mefolio-hibernate</artifactId>
+			<artifactId>mefolio-appfuse-hibernate</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 

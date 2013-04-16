@@ -12,9 +12,9 @@
 
 
 	<modules>
-		<module>mefolio-service</module>
-		<module>mefolio-model</module>
-		<module>mefolio-hibernate</module>
+		<module>mefolio-appfuse-service</module>
+		<module>mefolio-appfuse-model</module>
+		<module>mefolio-appfuse-hibernate</module>
 		<module>mefolio-webapp</module>
 	</modules>
 

@@ -197,7 +197,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
-			<artifactId>mefolio-service</artifactId>
+			<artifactId>mefolio-appfuse-service</artifactId>
 			<version>${project.version}</version>
 			<exclusions>
 				<exclusion>

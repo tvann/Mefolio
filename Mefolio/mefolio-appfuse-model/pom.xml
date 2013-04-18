@@ -11,11 +11,6 @@
 
 
 	<dependencies>
-		<dependency>
-			<groupId>commons-lang</groupId>
-			<artifactId>commons-lang</artifactId>
-			<version>${commons.lang.version}</version>
-		</dependency>
 		<!-- Only publicly available version of JPA 2.0 in Maven -->
 		<!-- http://paulszulc.wordpress.com/2010/01/09/jpa-2-0-and-spring-3-0-with-maven/ -->
 		<dependency>

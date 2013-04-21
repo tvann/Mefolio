@@ -17,8 +17,9 @@
 		<module>mefolio-appfuse-hibernate</module>
 		<module>mefolio-webapp</module>
 		<module>mefolio-fi-model</module>
-		<module>mefolio-fi-hibernate</module>
-		<module>mefolio-fi-service</module>
+<!-- 		<module>mefolio-fi-hibernate</module>
+		<module>mefolio-fi-service</module> -->
+		<module>mefolio-common</module>
 	</modules>
 
 	<build>

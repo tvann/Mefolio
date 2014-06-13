@@ -14,4 +14,11 @@
     <menu:displayMenu name="Logout"/>
 </ul>
 </div>
+<span style="float: right" >
+    <a href="?lang=en">en</a> 
+    | 
+    <a href="?lang=fr">fr</a>
+    | 
+    <a href="?lang=nl">nl</a>
+</span>
 </menu:useMenuDisplayer>
